@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GoogleLogin, Logout, emailLogin } from "../Redux/AuthReducer/action";
 import Profile from "./Profile";
 import styles from "./Login.module.css";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,6 +30,7 @@ const Login = () => {
   };
 
   if (isAuth) {
+    // return <Navigate to={"/"} />;
     return <Profile />;
   }
   if (!isAuth)
