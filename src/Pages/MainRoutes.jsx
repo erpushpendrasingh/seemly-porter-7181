@@ -6,20 +6,47 @@ import Login from "../Components/Login";
 import SignUp from "../Components/SignUp";
 import Profile from "../Components/Profile";
 import ProtectedRoute from "./ProtectedRoute";
+import AdminDashboard from "./AdminDashboard";
+import AdminEdit from "../Components/AdminEdit";
+import AddProduct from "../Components/AddProduct";
+import Products from "./Products";
 const MainRoutes = () => {
   return (
     <>
-      {/* For protected routes wrap the element in <ProtectedRoute><ProductPage></ProtectedRoute> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route
-          path="/profile"
+          path="/admin"
           element={
             <ProtectedRoute>
-              <Profile />
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/:id/edit"
+          element={
+            <ProtectedRoute>
+              <AdminEdit />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/add"
+          element={
+            <ProtectedRoute>
+              <AddProduct />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/product"
+          element={
+            <ProtectedRoute>
+              <Products />
             </ProtectedRoute>
           }
         />

@@ -5,16 +5,21 @@ import React from "react";
 import { FiHeart } from "react-icons/fi";
 
 const ProductCard = ({ item }) => {
-     const { imageUrl, brand, category, color, mrp, price } = item;
+     const { imgurl, brand, category, color, mrp, price } = item;
      return (
           <Box
-               w="280px"
-               borderWidth="1px"
-               borderRadius="lg"
-               p={5}
-               margin={"auto"}
+               _hover={{
+                    boxShadow: "2xl",
+                    cursor: "pointer",
+               }}
+               w="270px"
+               p={3}
+               mt={3}
+               boxShadow={"md"}
+               rounded="md"
+               bg="white"
           >
-               <Image src={imageUrl} alt={"imageAlt"} />
+               <Image src={imgurl} alt={"imageAlt"} />
                <HStack justifyContent={"end"}>
                     <FiHeart size={"30px"} bg="red" />
                </HStack>
